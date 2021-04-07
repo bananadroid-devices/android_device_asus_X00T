@@ -85,6 +85,9 @@ TARGET_TAP_TO_WAKE_NODE := "/sys/kernel/touchpanel/dclicknode"
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
 
+# Face Unlock
+TARGET_FACE_UNLOCK_SUPPORTED := true
+
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
