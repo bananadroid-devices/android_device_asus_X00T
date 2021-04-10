@@ -68,6 +68,19 @@ function blob_fixup() {
         "${PATCHELF}" --add-needed libdpmframework_shim.so "${2}"
         ;;
 
+    system/lib/libwfdaudioclient.so)
+        "${PATCHELF}" --set-soname "libwfdaudioclient.so" "${2}"
+        ;;
+
+    system/lib/libwfdmediautils.so)
+        "${PATCHELF}" --set-soname "libwfdmediautils.so" "${2}"
+        ;;
+
+    system/lib/libwfdmmsink.so)
+        "${PATCHELF}" --add-needed "libwfdaudioclient.so" "${2}"
+        "${PATCHELF}" --add-needed "libwfdmediautils.so" "${2}"
+        ;;
+
     # Load vndk 29 libprotobuf
     vendor/lib64/libwvhidl.so | vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0-service.so)
         "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite.so" "libprotobuf-cpp-lite-v29.so" "${2}"

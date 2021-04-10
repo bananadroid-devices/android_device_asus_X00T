@@ -98,7 +98,10 @@ PRODUCT_PACKAGES += \
     hwcomposer.sdm660 \
     memtrack.sdm660 \
     libdisplayconfig \
-    libqdMetaData.system \
+    libdisplayconfig.qti \
+    libdisplayconfig.qti.vendor \
+    libqdMetaData \
+    libqdMetaData.vendor \
     libtinyxml \
     libvulkan \
     libgenlock
@@ -220,7 +223,8 @@ PRODUCT_PACKAGES += \
     libOmxSwVencHevc \
     libOmxVdec \
     libOmxVenc \
-    libstagefrighthw
+    libstagefrighthw \
+    libstagefright_enc_common
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
