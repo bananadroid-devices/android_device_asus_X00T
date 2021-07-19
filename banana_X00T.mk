@@ -38,7 +38,7 @@ PRODUCT_GMS_CLIENTID_BASE := android-asus
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_MODEL=ASUS_X00T \
-    PRIVATE_BUILD_DESC="sdm660_64-user 10 QKQ1 72 release-keys"
+    PRIVATE_BUILD_DESC="X00T-user 11 RQ3A.210705.001 7380771 release-keys"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := asus/ASUS_X00TD/ASUS_X00TD:10/QKQ1/17.2017.2012.438-20201203:user/release-keys
+BUILD_FINGERPRINT := asus/X00T/X00T:11/RQ3A.210705.001/7380771:user/release-keys
