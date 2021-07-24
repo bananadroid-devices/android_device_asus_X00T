@@ -1,4 +1,5 @@
 # ZenParts
+type sysfs_dclicknode, sysfs_type, fs_type;
 type sysfs_fps, sysfs_type, fs_type;
 type sysfs_gesture_node, sysfs_type, fs_type;
 type sysfs_scontrol, sysfs_type, fs_type;

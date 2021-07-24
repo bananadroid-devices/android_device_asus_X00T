@@ -18,6 +18,14 @@
 # FPS Info
 /sys/devices/virtual/graphics/fb0/measured_fps                                                  u:object_r:sysfs_fps:s0
 
+# Gestures
+/sys/kernel/touchpanel/dclicknode                                       u:object_r:sysfs:s0
+/sys/kernel/touchpanel/gesture_node                                           u:object_r:sysfs:s0
+
+# Lights
+/sys/class/leds(/.*)?								u:object_r:sysfs_leds:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.asus_sdm660    u:object_r:hal_light_default_exec:s0
+
 # I/O
 # This node is already labelled by QCOM but Lineage overrides it with sysfs_io_sched_tunable label
 # Since qti_init_shell needs to write to it, LOS's private label isn't accessible by our vendor
