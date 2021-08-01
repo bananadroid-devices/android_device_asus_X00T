@@ -140,6 +140,7 @@ persist.sys.cust.lte_config=true
 persist.sys.fflag.override.settings_network_and_internet_v2=true
 persist.vendor.data.iwlan.enable=true
 persist.vendor.data.mode=concurrent
+persist.vendor.qti.telephony.vt_cam_interface=1
 persist.vendor.radio.add_power_save=1
 persist.vendor.radio.aosp_usr_pref_sel=true
 persist.vendor.radio.apm_sim_not_pwdn=1
