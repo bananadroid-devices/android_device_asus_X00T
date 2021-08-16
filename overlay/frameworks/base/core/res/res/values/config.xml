@@ -571,4 +571,8 @@
         <item>1</item> <!-- COLOR_MODE_BOOSTED -->
         <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->
     </integer-array>
+
+    <!-- Set default animations to half -->
+    <item name="config_appTransitionAnimationDurationScaleDefault" format="float" type="dimen">0.5</item>
+
 </resources>
