@@ -8,3 +8,6 @@ type cdfinger_data_file, file_type, data_file_type, core_data_file_type;
 type public_adsprpcd_file, file_type;
 type sysfs_iio_devices, sysfs_type, fs_type;
 
+# proc
+type proc_swappiness, proc_type, fs_type;
+
