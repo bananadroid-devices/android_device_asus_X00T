@@ -1,2 +1,4 @@
-# Gestures
-allow system_app sysfs_gesture_node:file rw_file_perms;
+allow system_app sysfs_touchpanel:dir search;
+allow system_app sysfs_touchpanel:file { getattr read write open };
+allow system_app sysfs_dclicknode:file { getattr read write open };
+allow system_app sysfs_gesture_node:file { getattr read write open };
