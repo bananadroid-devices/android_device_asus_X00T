@@ -4,6 +4,7 @@ type sysfs_fps, sysfs_type, fs_type;
 type sysfs_gesture_node, sysfs_type, fs_type;
 type sysfs_scontrol, sysfs_type, fs_type;
 type sysfs_touchpanel, sysfs_type, fs_type;
+type kcal_dev, sysfs_type, file_type;
 
 type cdfinger_data_file, file_type, data_file_type, core_data_file_type;
 type public_adsprpcd_file, file_type;
@@ -12,4 +13,3 @@ type debugfs_power_stats, fs_type, debugfs_type;
 
 # proc
 type proc_swappiness, proc_type, fs_type;
-
