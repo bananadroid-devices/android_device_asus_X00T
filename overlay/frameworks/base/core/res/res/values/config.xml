@@ -573,4 +573,7 @@
         <item>com.android.touch.gestures.KeyHandler</item>
     </string-array>
 
+    <!-- Enable or disable LiveDisplay -->
+    <bool name="config_enableLiveDisplay">false</bool>
+
 </resources>
