@@ -49,13 +49,6 @@
                 android:targetPackage="com.asus.zenparts.kcal" />
         </Preference>
 
-        <SwitchPreference
-            android:key="fps_info"
-            android:icon="@drawable/ic_fps_info"
-            android:title="@string/fps_info_title"
-            android:summary="@string/fps_info_summary"
-            android:persistent="true" />
-
         <com.asus.zenparts.preferences.SecureSettingSwitchPreference
             android:defaultValue="false"
             android:key="backlight_dimmer"
@@ -63,20 +56,6 @@
             android:title="@string/backlight_dimmer"
             android:summary="@string/backlight_summary" />
 
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/category_gesture">
-        <Preference
-                 android:key="gestures"
-                 android:title="@string/zenmotions"
-                 android:summary="@string/zenmotions_summary"
-                 android:icon="@drawable/ic_gestures"
-                 android:persistent="false" >
-                 <intent android:action="android.intent.action.MAIN"
-                         android:targetPackage="com.asus.zenparts"
-                         android:targetClass="com.asus.zenparts.settings.ScreenOffGestureSettings" />
-        </Preference>
     </PreferenceCategory>
 
     <PreferenceCategory

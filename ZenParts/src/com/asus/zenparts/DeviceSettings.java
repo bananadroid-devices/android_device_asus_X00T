@@ -18,12 +18,8 @@ package com.asus.zenparts;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.preference.PreferenceManager;
-import androidx.preference.SwitchPreference;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
@@ -53,7 +49,6 @@ public class DeviceSettings extends PreferenceFragment implements
     private static final String MICROPHONE_GAIN_PATH = "/sys/kernel/sound_control/mic_gain";
     public static final String PREF_BACKLIGHT_DIMMER = "backlight_dimmer";
     public static final String BACKLIGHT_DIMMER_PATH = "/sys/module/mdss_fb/parameters/backlight_dimmer";
-    public static final String PREF_KEY_FPS_INFO = "fps_info";    
 
     private CustomSeekBarPreference mTorchBrightness;
     private VibratorStrengthPreference mVibratorStrength;
@@ -62,13 +57,10 @@ public class DeviceSettings extends PreferenceFragment implements
     private Preference mKcal;
 
     private SecureSettingSwitchPreference mBacklightDimmer;
-    private static Context mContext;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.preferences_asus_parts, rootKey);
-        mContext = this.getContext();
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);        
 
         String device = FileUtils.getStringProp("ro.build.product", "unknown");
 
@@ -84,10 +76,6 @@ public class DeviceSettings extends PreferenceFragment implements
 
         mMicrophoneGain = (CustomSeekBarPreference) findPreference(PREF_MICROPHONE_GAIN);
         mMicrophoneGain.setOnPreferenceChangeListener(this);
-        
-        SwitchPreference fpsInfo = (SwitchPreference) findPreference(PREF_KEY_FPS_INFO);
-        fpsInfo.setChecked(prefs.getBoolean(PREF_KEY_FPS_INFO, false));
-        fpsInfo.setOnPreferenceChangeListener(this);        
 
         mVibratorStrength = (VibratorStrengthPreference) findPreference(KEY_VIBSTRENGTH);
         if (mVibratorStrength != null) {
@@ -96,8 +84,9 @@ public class DeviceSettings extends PreferenceFragment implements
 
         if (FileUtils.fileWritable(BACKLIGHT_DIMMER_PATH)) {
             mBacklightDimmer = (SecureSettingSwitchPreference) findPreference(PREF_BACKLIGHT_DIMMER);
-            mBacklightDimmer.setChecked(FileUtils.getFileValueAsBoolean(BACKLIGHT_DIMMER_PATH, false));
-            mBacklightDimmer.setOnPreferenceChangeListener(this);
+            mBacklightDimmer.setEnabled(BacklightDimmer.isSupported());
+            mBacklightDimmer.setChecked(BacklightDimmer.isCurrentlyEnabled(this.getContext()));
+            mBacklightDimmer.setOnPreferenceChangeListener(new BacklightDimmer(getContext()));
         } else {
             getPreferenceScreen().removePreference(findPreference(PREF_BACKLIGHT_DIMMER));
         }
@@ -126,19 +115,6 @@ public class DeviceSettings extends PreferenceFragment implements
 
             case PREF_MICROPHONE_GAIN:
                 FileUtils.setValue(MICROPHONE_GAIN_PATH, (int) value);
-                break;
-
-            case PREF_BACKLIGHT_DIMMER:
-                FileUtils.setValue(BACKLIGHT_DIMMER_PATH, (boolean) value);
-                break;
-            case PREF_KEY_FPS_INFO:
-                boolean enabled = (Boolean) value;
-                Intent fpsinfo = new Intent(this.getContext(), FPSInfoService.class);
-                if (enabled) {
-                    this.getContext().startService(fpsinfo);
-                } else {
-                    this.getContext().stopService(fpsinfo);
-                }
                 break;
 
             default:
