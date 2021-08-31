@@ -42,3 +42,6 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
 BUILD_FINGERPRINT := asus/X00T/X00T:11/RQ3A.210805.001.A1/7474174:user/release-keys
+
+GAPPS_VERSION := true
+TARGET_GAPPS_ARCH := arm64
