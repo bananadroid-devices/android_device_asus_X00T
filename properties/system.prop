@@ -7,6 +7,13 @@ vendor.camera.aux.packagelist=org.codeaurora.snapcam
 # CNE
 persist.vendor.cne.feature=1
 
+# Gboard
+ro.com.google.ime.kb_pad_port_l=7
+ro.com.google.ime.kb_pad_port_r=7
+ro.com.google.ime.kb_pad_land_l=14
+ro.com.google.ime.kb_pad_land_r=14
+ro.com.google.ime.kb_pad_port_b=1
+
 # Graphics
 debug.sdm.support_writeback=0
 debug.sf.disable_hwc_overlays=1
